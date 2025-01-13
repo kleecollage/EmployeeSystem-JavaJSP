@@ -13,7 +13,7 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+// @ToString
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +21,46 @@ public class Employee {
     String nameEmployee; // name_employee
     String department;
     String salary;
+
+    public Integer getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(Integer idEmployee) {
+        this.idEmployee = idEmployee;
+    }
+
+    public String getNameEmployee() {
+        return nameEmployee;
+    }
+
+    public void setNameEmployee(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "idEmployee=" + idEmployee +
+                ", nameEmployee='" + nameEmployee + '\'' +
+                ", department='" + department + '\'' +
+                ", salary='" + salary + '\'' +
+                '}';
+    }
 }
