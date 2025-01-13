@@ -9,18 +9,18 @@
         <h3>Add New Employee</h3>
     </div>
 
-    <form>
+    <form action="/employees/add" modelAttribute="employeeForm" method="post">
         <div class="mb-3">
             <label for="nameEmployee" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="nameEmployee" required>
+            <input type="text" class="form-control" id="nameEmployee" name="nameEmployee" required>
         </div>
         <div class="mb-3">
             <label for="department" class="form-label">Department</label>
-            <input type="text" class="form-control" id="department">
+            <input type="text" class="form-control" id="department" name="department">
         </div>
         <div class="mb-3">
             <label for="salary" class="form-label">Salary</label>
-            <input type="number" step="any" class="form-control" id="salary">
+            <input type="number" step="any" class="form-control" id="salary" name="salary">
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-warning btn-sm me-3">Submit</button>

@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
@@ -29,4 +30,33 @@ public class IndexController {
         model.put("employees", employees);
         return "index"; // index.jsp
     }
+
+    // GET [host/employees/add]
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String showAdd() {
+        return "add"; // add.jsp
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String addEmployee(@ModelAttribute("employeeForm") Employee employee) {
+        logger.info("Employee to add: " + employee.toString());
+        employeeService.saveEmployee(employee);
+        return "redirect:/"; // redirects to home
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
