@@ -18,7 +18,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idEmployee; // id_employee
-    String nameEmployee;
+    String nameEmployee; // name_employee
     String department;
     String salary;
 }
