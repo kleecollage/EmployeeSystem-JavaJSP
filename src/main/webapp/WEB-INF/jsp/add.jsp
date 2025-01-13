@@ -8,7 +8,6 @@
     <div class="text-center" style="margin: 30px">
         <h3>Add New Employee</h3>
     </div>
-
     <form action="/employees/add" modelAttribute="employeeForm" method="post">
         <div class="mb-3">
             <label for="nameEmployee" class="form-label">Employee Name</label>
