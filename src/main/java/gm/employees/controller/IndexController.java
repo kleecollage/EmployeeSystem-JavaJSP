@@ -9,6 +9,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 
 @Controller
@@ -34,15 +36,24 @@ public class IndexController {
     // GET [host/employees/add]
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String showAdd() {
-        return "add"; // add.jsp
+        return "add"; // to add.jsp
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addEmployee(@ModelAttribute("employeeForm") Employee employee) {
-        logger.info("Employee to add: " + employee.toString());
+        logger.info("Employee to add: " + employee);
         employeeService.saveEmployee(employee);
         return "redirect:/"; // redirects to home
     }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public String shoeEdit(@RequestParam int idEmployee, ModelMap model) {
+        Employee employee = employeeService.searchEmployeeById(idEmployee);
+        logger.info("Employee to edit: " + employee);
+        model.put("employee", employee);
+        return "edit"; // to edit.jsp
+    }
+
 }
 
 

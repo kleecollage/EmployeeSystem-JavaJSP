@@ -1,4 +1,3 @@
-
 <%-- HEADER --%>
 <%@ include file="commons/header.jsp" %>
 <%-- TOP NAV BAR --%>
@@ -31,11 +30,9 @@
                     </td>
                     <td class="text-center">
                         <c:url value="/edit" var="urlEdit">
-                            <c:param name="idEmployee" value="${employee.idEmployee}" />
+                            <c:param name="idEmployee" value="${employee.idEmployee}"/>
                         </c:url>
                         <a href="${urlEdit}" class="btn btn-warning btn-sm me-3">Edit</a>
-
-
                     </td>
                 </tr>
             </c:forEach>
