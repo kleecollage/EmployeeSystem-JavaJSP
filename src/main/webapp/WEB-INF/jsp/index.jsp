@@ -1,3 +1,4 @@
+
 <%-- HEADER --%>
 <%@ include file="commons/header.jsp" %>
 <%-- TOP NAV BAR --%>
@@ -15,6 +16,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Department</th>
                 <th scope="col">Salary</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +28,14 @@
                     <td>
                         <fmt:setLocale value="en_US" />
                         <fmt:formatNumber type="currency" value="${employee.salary}" />
+                    </td>
+                    <td class="text-center">
+                        <c:url value="/edit" var="urlEdit">
+                            <c:param name="idEmployee" value="${employee.idEmployee}" />
+                        </c:url>
+                        <a href="${urlEdit}" class="btn btn-warning btn-sm me-3">Edit</a>
+
+
                     </td>
                 </tr>
             </c:forEach>

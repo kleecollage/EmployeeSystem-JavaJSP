@@ -8,7 +8,7 @@
     <div class="text-center" style="margin: 30px">
         <h3>Add New Employee</h3>
     </div>
-    <form action="/employees/add" modelAttribute="employeeForm" method="post">
+    <form action="${urlAdd}" modelAttribute="employeeForm" method="post">
         <div class="mb-3">
             <label for="nameEmployee" class="form-label">Employee Name</label>
             <input type="text" class="form-control" id="nameEmployee" name="nameEmployee" required>
@@ -23,7 +23,7 @@
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-warning btn-sm me-3">Submit</button>
-            <a href="/employees/" class="btn btn-danger btn-sm">Go Back</a>
+            <a href="${urlHome}" class="btn btn-danger btn-sm">Go Back</a>
         </div>
     </form>
 </div>
