@@ -33,6 +33,11 @@
                             <c:param name="idEmployee" value="${employee.idEmployee}"/>
                         </c:url>
                         <a href="${urlEdit}" class="btn btn-warning btn-sm me-3">Edit</a>
+
+                        <c:url value="/remove" var="urlRemove">
+                            <c:param name="idEmployee" value="${employee.idEmployee}"/>
+                        </c:url>
+                        <a href="${urlRemove}" class="btn btn-danger btn-sm me-3">Remove</a>
                     </td>
                 </tr>
             </c:forEach>

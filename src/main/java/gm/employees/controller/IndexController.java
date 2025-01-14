@@ -27,7 +27,7 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String init(ModelMap model) {
         List<Employee> employees = employeeService.listEmployees();
-        employees.forEach(employee -> logger.info(employee.toString()));
+        // employees.forEach(employee -> logger.info(employee.toString()));
         // Share model with view
         model.put("employees", employees);
         return "index"; // index.jsp
@@ -47,13 +47,28 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String shoeEdit(@RequestParam int idEmployee, ModelMap model) {
+    public String showEdit(@RequestParam int idEmployee, ModelMap model) {
         Employee employee = employeeService.searchEmployeeById(idEmployee);
-        logger.info("Employee to edit: " + employee);
+        logger.info("Employee to update: " + employee);
         model.put("employee", employee);
         return "edit"; // to edit.jsp
     }
 
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public String updateEmployee(@ModelAttribute("employeeForm") Employee employee) {
+        logger.info("Employee to save: " + employee);
+        employeeService.saveEmployee(employee);
+        return "redirect:/"; // redirects to home
+    }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    public String removeEmployee(@RequestParam int idEmployee) {
+        Employee employee = new Employee();
+        employee.setIdEmployee(idEmployee);
+        employeeService.deleteEmployee(employee);
+        logger.info("Employee to delete: " + employee);
+        return "redirect:/"; // redirects to home
+    }
 }
 
 
